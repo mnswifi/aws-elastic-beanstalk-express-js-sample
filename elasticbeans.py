@@ -13,9 +13,17 @@ def create_environment():
         ApplicationName = "DevOpsGettingStarted",
         EnvironmentName = "DevOpsGettingStarted-env",
         Description="elastic beanstalk environment for CI delivery using github",
+        SolutionStackName = '64bit Amazon Linux 2 v3.3.6 running Node.js 14',
+        CNAMEPrefix='devopsgettingstarted',
+        OptionSettings=[
+            {
+                'Namespace': 'aws:autoscaling:launchconfiguration',
+            }
+        ],
         Tier={
             'Name':'WebServer',
-            'Type': 'Standard'
+            'Type': 'Standard',
+            'Version': '1.0'
         }
     )
 
