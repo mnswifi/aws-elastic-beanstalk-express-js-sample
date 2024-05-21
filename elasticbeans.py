@@ -1,13 +1,13 @@
 import boto3
 
-client = boto3.resource('elasticbeanstalk')
+eb_client = boto3.resource('elasticbeanstalk')
 
-eb_app = client.create_application(
+eb_client.create_application(
     ApplicationName='DevOpsGettingStarted',
     Description='Hosting web app to test CI/CD using github'
 )
 
-eb_env = client.create_environment(
+eb_client.create_environment(
     ApplicationName = "DevOpsGettingStarted",
     EnvironmentName = "DevOpsGettingStarted-env",
     Description="elastic beanstalk environment for CI delivery using github",
@@ -16,7 +16,7 @@ eb_env = client.create_environment(
         'Type': 'Standard'
     }
 )
-eb_platform= client.create_platform_version(
+eb_client.create_platform_version(
     PlatformName='Node.js',
     PlatformVersion="6.0.0 (Recommended)",
     EnvironmentName = "DevOpsGettingStarted-env"
