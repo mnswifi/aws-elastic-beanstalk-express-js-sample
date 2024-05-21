@@ -1,4 +1,5 @@
 import boto3
+from iam_role import create_iam_role
 
 eb_client = boto3.resource('elasticbeanstalk')
 
@@ -28,6 +29,7 @@ def create_platform():
 def main():
     create_application()
     create_application()
+    create_iam_role('aws-elasticbeanstalk-ec2-role')
     create_platform()
 
 
